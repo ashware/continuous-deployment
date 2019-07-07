@@ -1,6 +1,8 @@
 # Use Dockerized infrastructure
 sudo: false
 language: python
+python:
+  - "2.7"
 # Cache our Gcloud SDK between commands
 cache:
   directories:
@@ -32,10 +34,10 @@ install:
 - pip install -r requirements.txt -t lib/
 script:
 # Run the unit tests
-- python test_main.py
+#- python test_main.py
 # [START deploy]
 # Deploy the app
 - gcloud -q app deploy app.yaml --promote
 # Run and end to end test
-- python e2e_test.py
+#- python e2e_test.py
 # [END deploy]
